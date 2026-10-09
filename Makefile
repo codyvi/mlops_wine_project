@@ -60,7 +60,22 @@ create_environment:
 ## Make dataset
 .PHONY: data
 data: requirements
-	$(PYTHON_INTERPRETER) mlops_wine_module/dataset.py
+	$(PYTHON_INTERPRETER) -m mlops_wine_module.dataset
+
+## Build features and labels
+.PHONY: features
+features: data
+	$(PYTHON_INTERPRETER) -m mlops_wine_module.features
+
+## Train the model (extra args: make train ARGS="--C 0.5 --seed 7")
+.PHONY: train
+train: features
+	$(PYTHON_INTERPRETER) -m mlops_wine_module.modeling.train $(ARGS)
+
+## Predict on the saved test split
+.PHONY: predict
+predict:
+	$(PYTHON_INTERPRETER) -m mlops_wine_module.modeling.predict
 
 
 #################################################################################

@@ -5,4 +5,12 @@ python-dotenv
 ruff
 tqdm
 typer
+mlflow==3.16.0
+scikit-learn
+pandas
+matplotlib
+seaborn
+scipy
+ucimlrepo
+joblib
 -e .

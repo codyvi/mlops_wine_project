@@ -21,6 +21,14 @@ MODELS_DIR = PROJ_ROOT / "models"
 REPORTS_DIR = PROJ_ROOT / "reports"
 FIGURES_DIR = REPORTS_DIR / "figures"
 
+# Wine Quality (UCI id=186)
+UCI_DATASET_ID = 186
+CLASES = ["baja", "media", "alta"]
+
+# MLflow
+EXPERIMENT_NAME = "TC5061 - Wine Quality baseline"
+TRACKING_URI = f"sqlite:///{PROJ_ROOT / 'mlflow.db'}"
+
 # If tqdm is installed, configure loguru with tqdm.write
 # https://github.com/Delgan/loguru/issues/135
 try:
